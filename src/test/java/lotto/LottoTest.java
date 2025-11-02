@@ -22,4 +22,18 @@ class LottoTest {
     }
 
     // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @Test
+    void 당첨_번호_범위() {
+        WinningNumber winningNumber = new WinningNumber();
+        assertThatThrownBy(() -> winningNumber.setWinningNumber("48,2,3,4,5,6", "7"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 보너스_번호_범위() {
+        WinningNumber winningNumber = new WinningNumber();
+        assertThatThrownBy(() -> winningNumber.setWinningNumber("48,2,3,4,5,6", "0"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
